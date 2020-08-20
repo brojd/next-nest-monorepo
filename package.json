@@ -3,8 +3,22 @@
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prod-client": "wait-on http://localhost:9000 && cd client && yarn run build && yarn run start",
+    "prod-server": "cd server && yarn run build && yarn run start",
+    "prod": "concurrently \"yarn run prod-server\" \"yarn run prod-client\"",
+    "dev-client": "wait-on http://localhost:9000 && cd client && yarn run dev",
+    "dev-server": "cd server && yarn run start:debug",
+    "dev": "concurrently \"yarn run dev-server\" \"yarn run dev-client\""
+  },
+  "dependencies": {
+    "concurrently": "5.1.0",
+    "wait-on": "5.2.0"
   },
   "author": "",
   "license": "ISC"

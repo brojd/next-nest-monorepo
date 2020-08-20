@@ -10,7 +10,7 @@ const CheckSSR: FC<CheckSSRProps> = ({ fetchedWithSSR }) => {
   const [clientSideLoadedData, setClientSideLoadedData] = useState();
 
   useEffect(() => {
-    fetch(`${API_URL}/app`)
+    fetch(`${API_URL}`)
       .then((res) => res.json())
       .then((res) => {
         setClientSideLoadedData(res.data);
@@ -32,7 +32,7 @@ const CheckSSR: FC<CheckSSRProps> = ({ fetchedWithSSR }) => {
 };
 
 export async function getServerSideProps() {
-  const res = await fetch(`${API_URL}/app`);
+  const res = await fetch(`${API_URL}`);
   const { data: fetchedWithSSR } = await res.json();
 
   return {

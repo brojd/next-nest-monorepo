@@ -10,7 +10,7 @@ const CheckSSG: FC<CheckSSGProps> = ({ fetchedAsStaticInBuildTime }) => {
   const [clientSideLoadedData, setClientSideLoadedData] = useState();
 
   useEffect(() => {
-    fetch(`${API_URL}/app`)
+    fetch(`${API_URL}`)
       .then((res) => res.json())
       .then((res) => {
         setClientSideLoadedData(res.data);
@@ -32,7 +32,7 @@ const CheckSSG: FC<CheckSSGProps> = ({ fetchedAsStaticInBuildTime }) => {
 };
 
 export async function getStaticProps() {
-  const res = await fetch(`${API_URL}/app`);
+  const res = await fetch(`${API_URL}`);
   const { data: fetchedAsStaticInBuildTime } = await res.json();
 
   return {
