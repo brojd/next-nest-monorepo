@@ -1,5 +1,5 @@
-import { useEffect, useState, FC } from 'react';
-import { API_URL } from '../config/api';
+import { FC, useState, useEffect } from 'react';
+import { API_URL } from '../../../config/api';
 
 type CheckSSRProps = {
   fetchedAsStaticInBuildTime: string;
@@ -11,8 +11,8 @@ const CheckSSR: FC<CheckSSRProps> = ({ fetchedWithSSR }) => {
 
   useEffect(() => {
     fetch(`${API_URL}`)
-      .then((res) => res.json())
-      .then((res) => {
+      .then(res => res.json())
+      .then(res => {
         setClientSideLoadedData(res.data);
       });
   }, []);
@@ -30,16 +30,5 @@ const CheckSSR: FC<CheckSSRProps> = ({ fetchedWithSSR }) => {
     </>
   );
 };
-
-export async function getServerSideProps() {
-  const res = await fetch(`${API_URL}`);
-  const { data: fetchedWithSSR } = await res.json();
-
-  return {
-    props: {
-      fetchedWithSSR,
-    },
-  };
-}
 
 export default CheckSSR;

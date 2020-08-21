@@ -9,12 +9,12 @@
     "server"
   ],
   "scripts": {
-    "prod-client": "wait-on http://localhost:9000 && cd client && yarn run build && yarn run start",
-    "prod-server": "cd server && yarn run build && yarn run start",
-    "prod": "concurrently \"yarn run prod-server\" \"yarn run prod-client\"",
-    "dev-client": "wait-on http://localhost:9000 && cd client && yarn run dev",
-    "dev-server": "cd server && yarn run start:debug",
-    "dev": "concurrently \"yarn run dev-server\" \"yarn run dev-client\""
+    "prod-client": "wait-on http://localhost:9000 && cd client && yarn build && yarn start",
+    "prod-server": "cd server && yarn build && yarn start",
+    "prod": "concurrently \"yarn prod-server\" \"yarn prod-client\"",
+    "dev-client": "wait-on http://localhost:9000 && cd client && yarn dev",
+    "dev-server": "cd server && yarn start:debug",
+    "dev": "concurrently \"yarn dev-server\" \"yarn dev-client\""
   },
   "dependencies": {
     "concurrently": "5.1.0",

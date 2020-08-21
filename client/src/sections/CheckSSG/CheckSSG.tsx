@@ -1,5 +1,5 @@
-import { useEffect, useState, FC } from 'react';
-import { API_URL } from '../config/api';
+import { FC, useState, useEffect } from 'react';
+import { API_URL } from '../../../config/api';
 
 type CheckSSGProps = {
   fetchedAsStaticInBuildTime: string;
@@ -11,8 +11,8 @@ const CheckSSG: FC<CheckSSGProps> = ({ fetchedAsStaticInBuildTime }) => {
 
   useEffect(() => {
     fetch(`${API_URL}`)
-      .then((res) => res.json())
-      .then((res) => {
+      .then(res => res.json())
+      .then(res => {
         setClientSideLoadedData(res.data);
       });
   }, []);
@@ -30,16 +30,5 @@ const CheckSSG: FC<CheckSSGProps> = ({ fetchedAsStaticInBuildTime }) => {
     </>
   );
 };
-
-export async function getStaticProps() {
-  const res = await fetch(`${API_URL}`);
-  const { data: fetchedAsStaticInBuildTime } = await res.json();
-
-  return {
-    props: {
-      fetchedAsStaticInBuildTime,
-    },
-  };
-}
 
 export default CheckSSG;
