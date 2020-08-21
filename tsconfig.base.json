@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "paths": {
+      "@client/*": ["client/src/*"],
+      "@server/*": ["server/src/*"],
+      "@shared/*": ["shared/src/*"]
+    }
+  }
+}

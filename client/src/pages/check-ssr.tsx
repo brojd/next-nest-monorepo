@@ -1,9 +1,10 @@
-import { API_URL } from '../../config/api';
 import CheckSSR from '../sections/CheckSSR/CheckSSR';
+import { getHello } from '@client/services/hello';
 
 export async function getServerSideProps() {
-  const res = await fetch(`${API_URL}`);
-  const { data: fetchedWithSSR } = await res.json();
+  const {
+    data: { data: fetchedWithSSR }
+  } = await getHello();
 
   return {
     props: {

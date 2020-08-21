@@ -1,9 +1,10 @@
-import { API_URL } from '../../config/api';
 import CheckSSG from '../sections/CheckSSG/CheckSSG';
+import { getHello } from '@client/services/hello';
 
 export async function getStaticProps() {
-  const res = await fetch(`${API_URL}`);
-  const { data: fetchedAsStaticInBuildTime } = await res.json();
+  const {
+    data: { data: fetchedAsStaticInBuildTime }
+  } = await getHello();
 
   return {
     props: {
