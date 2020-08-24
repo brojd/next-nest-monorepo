@@ -5,7 +5,7 @@ import { Todo } from '@shared/types/todo';
 @Injectable()
 export class AppService {
   getHello(): { data: string } {
-    return { data: `${multiple(2)}` };
+    return { data: `${multiple(Math.random() * 100)}` };
   }
 
   getTodo(): { data: Todo } {
