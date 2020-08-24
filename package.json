@@ -19,12 +19,21 @@
     "dev-client": "wait-on http://localhost:9000 && cd client && yarn dev",
     "dev": "concurrently \"yarn dev-server\" \"yarn dev-client\" \"yarn dev-shared\"",
     "lint": "cd client && yarn lint && cd ../server && yarn lint && cd ../shared && yarn lint",
-    "clean-deps": "rimraf ./node_modules && rimraf client/node_modules && rimraf server/node_modules && rimraf shared/node_modules"
+    "clean-yarn-lock": "rimraf ./yarn.lock && rimraf client/yarn.lock && rimraf server/yarn.lock && rimraf shared/yarn.lock",
+    "clean-deps": "yarn clean-yarn-lock && rimraf ./node_modules && rimraf client/node_modules && rimraf server/node_modules && rimraf shared/node_modules"
   },
   "dependencies": {
+    "husky": "4.2.3",
     "concurrently": "5.1.0",
-    "wait-on": "5.2.0"
+    "wait-on": "5.2.0",
+    "pretty-quick": "2.0.1"
   },
-  "author": "",
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged",
+      "pre-push": "yarn lint && yarn test"
+    }
+  },
+  "author": "Dominik Broj",
   "license": "ISC"
 }
