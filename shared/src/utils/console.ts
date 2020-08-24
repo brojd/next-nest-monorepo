@@ -1,1 +1,1 @@
-export const dummyConsoleLog = (text: string) => console.log(text);
+export const dummyConsoleLog = (text: string) => console.log(text + 'c');

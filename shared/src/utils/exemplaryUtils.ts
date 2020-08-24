@@ -1,1 +1,1 @@
-export const multiple = (nb: number) => nb * 2;
+export const multiple = (nb: number) => nb * 13;

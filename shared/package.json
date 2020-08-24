@@ -6,6 +6,8 @@
   "author": "Dominik Broj",
   "license": "MIT",
   "scripts": {
+    "build": "rimraf ./dist && tsc",
+    "dev": "tsc -w",
     "lint": "tsc --noEmit --composite false && eslint --ext ts \"./src\"",
     "test": "jest"
   },

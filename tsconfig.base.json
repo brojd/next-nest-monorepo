@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
     "noImplicitAny": true,
+    "baseUrl": "./",
     "paths": {
       "@client/*": ["client/src/*"],
       "@server/*": ["server/src/*"],
-      "@shared/*": ["shared/src/*"]
+      "@shared/*": ["shared/dist/*"]
     }
   }
 }
