@@ -17,7 +17,9 @@
     "dev-shared": "cd shared && yarn dev",
     "dev-server": "cd server && yarn start:debug",
     "dev-client": "wait-on http://localhost:9000 && cd client && yarn dev",
-    "dev": "concurrently \"yarn dev-server\" \"yarn dev-client\" \"yarn dev-shared\""
+    "dev": "concurrently \"yarn dev-server\" \"yarn dev-client\" \"yarn dev-shared\"",
+    "lint": "cd client && yarn lint && cd ../server && yarn lint && cd ../shared && yarn lint",
+    "clean-deps": "rimraf ./node_modules && rimraf client/node_modules && rimraf server/node_modules && rimraf shared/node_modules"
   },
   "dependencies": {
     "concurrently": "5.1.0",

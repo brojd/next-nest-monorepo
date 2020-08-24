@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "tsc --noEmit && eslint --ext ts --ext tsx \"./src\""
   },
   "dependencies": {
     "axios": "^0.20.0",
@@ -17,8 +18,17 @@
     "shared": "0.0.1"
   },
   "devDependencies": {
-    "@types/node": "^14.6.0",
-    "@types/react": "^16.9.46",
-    "typescript": "^3.9.7"
+    "@types/node": "14.6.0",
+    "@types/react": "16.9.46",
+    "@typescript-eslint/eslint-plugin": "2.22.0",
+    "@typescript-eslint/parser": "2.22.0",
+    "babel-eslint": "10.1.0",
+    "eslint-config-prettier": "6.10.0",
+    "eslint-config-react-app": "5.2.0",
+    "eslint-plugin-flowtype": "4.6.0",
+    "eslint-plugin-import": "2.20.1",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-react": "7.18.3",
+    "eslint-plugin-react-hooks": "2.5.0"
   }
 }

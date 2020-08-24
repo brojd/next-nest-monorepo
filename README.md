@@ -17,7 +17,7 @@ The repo consists of 3 folders: `client` (for FE app), `server` (for BE app) and
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `yarn dev`        | Starts concurrently Next dev server (on port 3000) and runs Nest development mode (on port 9000).  |
 | `yarn prod`      | Builds shared module, then builds and runs BE app and then builds FE app and starts it. FE listens on port `3000`, API on `9000`                                                                                                                                                                       |
-| `yarn lint`       | TBD                                                                                          |
+| `yarn lint`       | Runs eslint across all 3 folders                                                                                       |
 | `yarn test`       | TBD                                                                                                                                                                                                                                     |
 
 ### Installing dependencies
